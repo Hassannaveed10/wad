@@ -1,5 +1,8 @@
 <?php
 require_once "db_connection.php";
+if(!isset($_SESSION['user_email'])){
+    header('location: login.php?not_admin=You are not Admin!');
+}
 if(isset($_POST['insert_button'])){
     //getting text data from the fields
     $br_title = $_POST['brand_title'];
@@ -12,8 +15,6 @@ if(isset($_POST['insert_button'])){
         header("location: ".$_SERVER['PHP_SELF']);
     }
 }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -59,4 +60,3 @@ if(isset($_POST['insert_button'])){
 </div>
 </body>
 </html>
-
